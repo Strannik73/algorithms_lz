@@ -2,7 +2,8 @@
 from random import randint
 list_1 = [randint(1, 100000) for i in range(100)]
 stop_flag = True
-
+y1 = 0
+y2 = 0
 while stop_flag is True:
     stop_flag = False
     for i in range(0, len(list_1)-1):
@@ -10,6 +11,7 @@ while stop_flag is True:
             change = list_1[i]
             list_1[i] = list_1[i+1]#меняем местами числа
             list_1[i+1] = change
+            y += 1
             stop_flag = True
         print(list_1)# выписываем состояние списка после каждой итерации
 
@@ -34,6 +36,9 @@ for i in range(n):
         for j in range(i, n):
             if list_2[j] > list_2[h]:# сравнтваем два элимента
                 h = j
+                y2 += 1
         list_2[i], list_2[h] = list_2[h], list_2[i]#записываем новый порядок
 
         print(list_2)
+print('Кол-во сравнений при сортировке пузырьком', y1)
+print('Кол-во сравнений при сортировке выбором', y2)
